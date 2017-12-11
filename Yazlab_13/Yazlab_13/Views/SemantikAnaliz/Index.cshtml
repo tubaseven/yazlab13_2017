@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "UrldeSay";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+<div class="container" style="width:100%;margin-left:32%;">
+
+    <center>
+        <br />
+        <br />
+        <br />
+        <br />
+
+
+        <div class="col-md-4 col-xs-4" style="border:solid 1px;padding:20px;">
+            <form action="/SemantikAnaliz/Transaction_SemantikAnaliz" method="post">
+                <h3>SEMANTİK ANALİZ</h3>
+                <br />
+                <input type="text" name="anahtar_kelime" placeholder="Anahtar Kelime" class="form-control" />
+                <br />
+                <input type="text" name="url" placeholder="URL" class="form-control" />
+                <br />
+                <input type="submit" value="İŞLEM YAP" class="form-control btn btn-primary " />
+            </form>
+        </div>
+
+    </center>
+</div>
