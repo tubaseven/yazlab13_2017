@@ -26,7 +26,6 @@ namespace Yazlab_13.Controllers
             // işlemler...
 
 
-
             //  sahte işlemler::
 
             SonucModel sm1 = new SonucModel()
