@@ -4,9 +4,9 @@
 }
 
 @using Yazlab_13.Models
-
 @{
-    List<SonucModel> liste = (List<SonucModel>)TempData["liste"];
+    // liste Controllerden alınırken puanlarına göre sıralanıyor: bu kodda Lambda Expression kullanılmıştır
+    List<SonucModel> liste = ((List<SonucModel>)TempData["liste"]).OrderByDescending(w => w.puan).ToList();
 }
 
 <div class="container">
@@ -22,8 +22,23 @@
 
         <div class="col-md-6 col-xs-6" style="border:1px solid black;border-radius:5px;padding:10px;margin-left:30%;margin-top:20px;">
             <div class="" style="width:100%;border:1px dotted black;">
-                <h4><span class="badge">@sonuc.puan</span>  @sonuc.baslik</h4>
+                <font size="4">Sırası: <span class="badge">@(i + 1)</span> </font>
+                <font size="4" style="float:right;">Puanı : <span class="badge">@sonuc.puan</span> </font>
             </div>
+
+
+            <div class="" style="width:100%;border:1px dotted black;">
+                @for (int j = 0; j < sonuc.anahtar_kelimeler.Count; j++)
+                {
+                    <font size="3">@sonuc.anahtar_kelimeler.ElementAt(j).isim =<span class="badge">@sonuc.anahtar_kelimeler.ElementAt(j).sayi </span> || </font>
+                }
+            </div>
+
+            <div class="" style="width:100%;border:1px dotted black;">
+                <h4>@sonuc.baslik </h4>
+            </div>
+
+
             <div class="" style="width:100%;border:1px dotted black;padding:5px;">
                 <a href="@sonuc.url" class="btn-link">@sonuc.url</a>
             </div>

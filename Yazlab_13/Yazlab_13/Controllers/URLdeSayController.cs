@@ -22,38 +22,28 @@ namespace Yazlab_13.Controllers
             string anahtar_kelime = form_collection["anahtar_kelime"];
             string url = form_collection["url"];
 
-            List<SonucModel> liste = new List<SonucModel>();
+            Web_Url_Islemleri web_url_islemleri = new Web_Url_Islemleri();
 
-            // işlemler...
+
+            string html_url_icerigi = web_url_islemleri.HttpIstegiYap(url);
+            string temiz_url_icerigi = web_url_islemleri.HtmlIfadeleriniTemizle(html_url_icerigi);
+            int gecme_sayisi = web_url_islemleri.IcerikteKelimeSay(temiz_url_icerigi, anahtar_kelime);
+
+            string baslik = web_url_islemleri.BasligiAl(html_url_icerigi);
+
 
 
             //  sahte işlemler::
 
             SonucModel sm1 = new SonucModel()
             {
-                puan = 7,
-                baslik = "Siber Güvenlik Önceliğimizdir",
-                url = "https://www.ueaka.gov.tr/sayfalar/Siber_Guvenlik_Onceligimizdir"
-            };
-            SonucModel sm2 = new SonucModel()
-            {
-                puan = 3,
-                baslik = "Türkiye'de Bilgi Güvenliği",
-                url = "https://www.ueaka.gov.tr/sayfalar/Turkiyede_Bilgi_Guvenligi"
-            };
-            SonucModel sm3 = new SonucModel()
-            {
-                puan = 1,
-                baslik = "Ortadoğuda Güvenlik Algısı",
-                url = "https://gg.blogspot.com/sayfalar/Orta_doguda_guvenlik_algısı"
+                puan = gecme_sayisi,
+                baslik = baslik,
+                url = url
             };
 
 
-            liste.Add(sm1);
-            liste.Add(sm2);
-            liste.Add(sm3);
-
-            TempData["liste"] = liste;
+            TempData["sonuc"] = sm1;
 
             return RedirectToAction("Sonuc");
         }

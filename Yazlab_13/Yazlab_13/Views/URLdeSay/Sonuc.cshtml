@@ -6,7 +6,8 @@
 @using Yazlab_13.Models
 
 @{
-    List<SonucModel> liste = (List<SonucModel>)TempData["liste"];
+    SonucModel sonuc = (SonucModel)TempData["sonuc"];
+    
 }
 
 <div class="container">
@@ -16,10 +17,6 @@
     <center><h3>URL'DE SAYMA SONUÇLARI</h3></center>
     <hr />
 
-    @for (int i = 0; i < liste.Count; i++)
-    {
-        SonucModel sonuc = liste.ElementAt(i);
-
         <div class="col-md-6 col-xs-6" style="border:1px solid black;border-radius:5px;padding:10px;margin-left:30%;margin-top:20px;">
             <div class="" style="width:100%;border:1px dotted black;">
                 <h4><span class="badge">@sonuc.puan</span>  @sonuc.baslik</h4>
@@ -28,8 +25,6 @@
                 <a href="@sonuc.url" class="btn-link">@sonuc.url</a>
             </div>
         </div>
-
-    }
 
 
 </div>

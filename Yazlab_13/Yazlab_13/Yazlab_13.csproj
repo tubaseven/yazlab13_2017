@@ -159,6 +159,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AramaMotoruController.cs" />
+    <Compile Include="Controllers\HakkimizdaController.cs" />
     <Compile Include="Controllers\SayfaSiralamaController.cs" />
     <Compile Include="Controllers\SemantikAnalizController.cs" />
     <Compile Include="Controllers\SiteSiralamaController.cs" />
@@ -167,10 +168,12 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Anahtar_Kelime.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\SonucModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="Web_Url_Islemleri.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -216,6 +219,7 @@
     <Content Include="Views\SiteSiralama\Sonuc.cshtml" />
     <Content Include="Views\SemantikAnaliz\Index.cshtml" />
     <Content Include="Views\SemantikAnaliz\Sonuc.cshtml" />
+    <Content Include="Views\Hakkimizda\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
